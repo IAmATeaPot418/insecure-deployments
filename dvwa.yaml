@@ -1,0 +1,42 @@
+# Namespace for vulerable web applicatino
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vulerable
+  labels:
+    app: dvwa
+    usage: insecure
+
+---
+
+# Deployment named "owasp-dvwa"
+# Listens on port 80.
+# Isn't privledged just in case someone pops it. Don't set privledged to true.
+# Vulnerable to all the things.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: owasp-dvwa
+  namespace: vulerable
+  labels:
+    app: dvwa
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+       app: dvwa
+  template:
+    metadata:
+     labels:
+       app: dvwa
+    spec:
+      containers:
+      - image: vulnerables/cve-2014-6271
+        imagePullPolicy: Always
+        name: dvwa
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        securityContext:
+          capabilities:
+            drop: ["NET_ADMIN"]
